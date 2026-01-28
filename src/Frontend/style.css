@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(15, 12, 7);
+}
+h1{
+    color: aqua;
+    text-align: center;
+    font-size:3rem;
+}
+
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    justify-content:flex-start;
+    list-style-type: none;
+    font-size: 22px;
+    color: wheat;
+    font-weight: 800;
+}
