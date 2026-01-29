@@ -1,6 +1,8 @@
 from enum import Enum
 from dataclasses import dataclass
 from typing import Tuple
+
+#fixed some values for health state using Enum
 class HealthState(Enum):
     HEALTHY = "healthy"
     UNHEALTHY = "unhealthy"
@@ -15,6 +17,7 @@ class Node:
     day_infected :int =0
 
 @dataclass
+#define how simulation will run
 class simulation_config:
     infection_rate:float=0.2
     recovery_days:int=14
