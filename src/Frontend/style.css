@@ -1,12 +1,14 @@
 body{
-    background-color: rgb(15, 12, 7);
-}
+    background-color: #982176;
 h1{
-    color: aqua;
+    color: #9400FF;
     text-align: center;
     font-size:3rem;
 }
-
+a{
+    text-decoration: none;
+    color:white;
+}
 .navbar ul {
     display: flex;
     flex-direction: row;
@@ -14,6 +16,6 @@ h1{
     justify-content:flex-start;
     list-style-type: none;
     font-size: 22px;
-    color: wheat;
+    color: #5D0E41;
     font-weight: 800;
 }
