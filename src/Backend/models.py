@@ -13,7 +13,7 @@ class HealthState(Enum):
 class Node:
     id:int
     state:HealthState
-    postion:tuple[float,float]
+    position:tuple[float,float]
     day_infected :int =0
 
 @dataclass
