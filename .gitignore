@@ -1,1 +1,4 @@
 myevn
+__pycache__/
+*.pyc
+.env
