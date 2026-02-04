@@ -4,9 +4,9 @@ from typing import Tuple
 
 #fixed some values for health state using Enum
 class HealthState(Enum):
-    HEALTHY = "healthy"
-    UNHEALTHY = "unhealthy"
-    UNKNOWN = "unknown"
+    SUSCEPTIBLE = "susceptible"
+    INFECTED = "infected"
+    RECOVERED = "recovered"
 @dataclass
 
 #graph node
@@ -18,7 +18,7 @@ class Node:
 
 @dataclass
 #define how simulation will run
-class simulation_config:
+class SimulationConfig:
     infection_rate:float=0.2
     recovery_days:int=14
     initial_infected:int=5
