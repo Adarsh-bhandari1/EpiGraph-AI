@@ -55,5 +55,3 @@ with open(OUTPUT_FILE, "w", newline="") as f:
 
         features["infected_after_10"] = infected_after
         writer.writerow(features)
-
-print("✅ Dataset generated successfully:", OUTPUT_FILE)
