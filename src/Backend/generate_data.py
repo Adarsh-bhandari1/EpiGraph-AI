@@ -8,6 +8,8 @@ from models import HealthState
 OUTPUT_FILE = "dataset.csv"
 NUM_RUNS = 300
 STEPS_AHEAD = 10
+INFECTION_PROB = 0.1  # lower = slower spread, so infected_after_10 varies (was 0.3 → always 100)
+K_MIN, K_MAX = 2, 5   # vary edges per node so graph density varies
 
 
 def extract_features(graph, nodes):
@@ -40,14 +42,15 @@ with open(OUTPUT_FILE, "w", newline="") as f:
 
     for _ in range(NUM_RUNS):
         graph, nodes = initialize_simulation(num_nodes=100)
-        add_edges(k=5)
+        k = random.randint(K_MIN, K_MAX)
+        add_edges(k=k)
 
         # infect one random node
         random.choice(nodes).state = HealthState.INFECTED
 
         features = extract_features(graph, nodes)
 
-        run_simulation(steps=STEPS_AHEAD)
+        run_simulation(steps=STEPS_AHEAD, infection_prob=INFECTION_PROB)
 
         infected_after = sum(
             1 for n in nodes if n.state == HealthState.INFECTED
