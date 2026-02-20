@@ -16,7 +16,14 @@ model= XGBRegressor(n_estimators=300 , learning_rate=0.05 , max_depth=6 , random
 
 model.fit(X_train , y_train , eval_set=[(X_test , y_test)] , early_stopping_rounds=20 , verbose=False)
 
-model.predict(X_test)
+predictions=model.predict(X_test)
+
+mae=mean_absolute_error(y_test , predictions)
+r2 = r2_score(y_test , predictions)
+print("Model Evaluation Results")
+print("-------------------------")
+print("Mean Absolute Error:", round(mae, 2))
+print("R² Score:", round(r2, 3))
 
 
 
