@@ -25,6 +25,11 @@ print("-------------------------")
 print("Mean Absolute Error:", round(mae, 2))
 print("R² Score:", round(r2, 3))
 
+#saving the model 
+
+joblib.dump(model , "xgboost_model.pkl")
+print("Model saved ")
+
 
 
 
