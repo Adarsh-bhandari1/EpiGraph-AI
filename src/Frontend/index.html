@@ -1,25 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EpiGraph-AI</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <h1>EpiGraph-AI</h1>
-    <nav class="navbar">
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/simulate">Simulation</a>
-        </li>
-        <li>
-          <a href="">Data</a>
-        </li>
-      </ul>
-    </nav>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EpiGraph-AI</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>EpiGraph-AI Disease Spread Simulator</h1>
+    </header>
+
+    <div class="dashboard">
+
+      <div class="controls">
+
+        <h2>Simulation Controls</h2>
+
+        <label>Nodes</label>
+        <input id="nodes">
+
+        <label>Initial Infected</label>
+        <input id="infected">
+
+        <label>Infection Probability</label>
+        <input id="prob">
+
+        <button onclick="runSimulation()">Run Simulation</button>
+
+      </div>
+
+      <div class="visualization">
+
+        <h2>Network Visualization</h2>
+
+        <div id="graph"></div>
+
+      </div>
+
+    </div>
+
+    <div class="results">
+
+      <h2>Prediction Results</h2>
+
+      <p id="prediction"></p>
+
+    </div>
+
+  </div>
+</body>
+
 </html>
