@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,49 +8,85 @@
 </head>
 
 <body>
-  <div class="container">
-
-    <header>
-      <h1>EpiGraph-AI Disease Spread Simulator</h1>
+  <div class="bg-animation" aria-hidden="true">
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+    <div class="bg-orb bg-orb-4"></div>
+    <div class="bg-grid"></div>
+  </div>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-mark">EG</div>
+        <div class="brand-text">
+          <h1>EpiGraph-AI</h1>
+          <p class="subtitle">Interactive network-based disease spread simulator</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="badge badge-primary">AI-powered</span>
+        <span class="badge badge-soft">Graph-based modeling</span>
+      </div>
     </header>
 
-    <div class="dashboard">
+    <main class="app-main">
+      <section class="panel controls">
+        <div class="panel-header">
+          <h2>Simulation Controls</h2>
+          <p>Configure your synthetic population and infection dynamics.</p>
+        </div>
 
-      <div class="controls">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="nodes">Total Nodes</label>
+            <input id="nodes" type="number" placeholder="e.g. 500" />
+            <small>Number of individuals in the contact network.</small>
+          </div>
 
-        <h2>Simulation Controls</h2>
+          <div class="form-field">
+            <label for="infected">Initial Infected</label>
+            <input id="infected" type="number" placeholder="e.g. 5" />
+            <small>Seed infections at the start of the simulation.</small>
+          </div>
 
-        <label>Nodes</label>
-        <input id="nodes">
+          <div class="form-field">
+            <label for="prob">Infection Probability</label>
+            <input id="prob" type="number" step="0.01" min="0" max="1" placeholder="e.g. 0.18" />
+            <small>Per-contact probability of transmission \[0–1\].</small>
+          </div>
+        </div>
 
-        <label>Initial Infected</label>
-        <input id="infected">
+        <div class="actions">
+          <button class="btn btn-primary" onclick="runSimulation()">
+            Run Simulation
+          </button>
+          <button class="btn btn-ghost" type="button">
+            Reset
+          </button>
+        </div>
+      </section>
 
-        <label>Infection Probability</label>
-        <input id="prob">
+      <section class="panel visualization">
+        <div class="panel-header">
+          <h2>Network Visualization</h2>
+          <p>Explore how infections propagate over the contact graph.</p>
+        </div>
+        <div id="graph" class="graph-surface">
+          <!-- Graph rendering target -->
+        </div>
+      </section>
+    </main>
 
-        <button onclick="runSimulation()">Run Simulation</button>
-
+    <section class="panel results">
+      <div class="panel-header">
+        <h2>Prediction Results</h2>
+        <p>Key metrics and outcome summaries from the latest run.</p>
       </div>
-
-      <div class="visualization">
-
-        <h2>Network Visualization</h2>
-
-        <div id="graph"></div>
-
+      <div id="prediction" class="results-body">
+        <!-- Results will be injected here -->
       </div>
-
-    </div>
-
-    <div class="results">
-
-      <h2>Prediction Results</h2>
-
-      <p id="prediction"></p>
-
-    </div>
-
+    </section>
   </div>
 </body>
 
