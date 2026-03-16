@@ -38,16 +38,12 @@ requirements.txt
 pip install -r requirements.txt
 ```
 
-Notes:
-- `src/Backend/train_model.py` imports `xgboost`. If you don’t already have it, install it:
-
-```bash
-pip install xgboost
-```
+This installs the web app + simulation dependencies, including `xgboost` for `src/Backend/train_model.py`.
 
 ## Run the web app
 
 The Flask app serves:
+
 - `GET /` → home page
 - `GET /simulate` → simulation page
 - `POST /run_simulation` → runs a simulation and returns graph JSON for the UI
@@ -74,6 +70,7 @@ Then open the app in your browser at `http://127.0.0.1:5000/`.
 ```
 
 It returns:
+
 - `nodes`: Cytoscape-compatible node list with `id` + `state`
 - `edges`: Cytoscape-compatible edge list
 - `prediction`: predicted infected count (currently derived from the simulation result)
@@ -89,12 +86,14 @@ python train_model.py
 ```
 
 This produces:
+
 - `src/Backend/dataset.csv`
 - `src/Backend/xgboost_model.pkl`
 
 ## Git-tracked artifacts
 
 By default, this repo’s `.gitignore` ignores:
+
 - `dataset.csv`
 - `*.pkl`
 
